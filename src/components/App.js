@@ -3,7 +3,7 @@ import Header from './header/Header';
 import Main from './main/Main';
 import Footer from './footer/Footer';
 import PopupWithForm from './popupwithform/PopupWithForm';
-import PopupWithImage from './popupwithimage/PopupWithImage';
+import ImagePopup from './imagepopup/ImagePopup';
 
 import './App.css';
 
@@ -143,7 +143,7 @@ function App() {
           <button className="form__button form__button_type_add-place" type="submit">Создать</button>
         </PopupWithForm>
         {/* Модальное окно галереи - Popup */}
-        <PopupWithImage
+        <ImagePopup
           card={selectedCard}
           isOpen={isGalleryPopupOpen}
           onClose={closeAllPopups}

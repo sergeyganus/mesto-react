@@ -1,4 +1,4 @@
-function PopupWithImage({ card, isOpen, onClose }) {
+function ImagePopup({ card, isOpen, onClose }) {
   return (card !== null) && (
     <div className={`popup popup_type_gallery ${isOpen && 'popup_opened'}`}>
       <div className="popup__container popup__container_type_gallery">
@@ -10,4 +10,4 @@ function PopupWithImage({ card, isOpen, onClose }) {
   );
 }
 
-export default PopupWithImage;
+export default ImagePopup;
