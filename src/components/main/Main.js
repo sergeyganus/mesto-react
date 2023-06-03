@@ -1,20 +1,16 @@
 import React from 'react';
 import Card from '../card/Card';
 
-import UserInfo from '../../utils/UserInfo';
 import { api } from '../../utils/Api';
 import { applicationConfig } from '../../utils/constants';
 import defaultProfilePhoto from '../../images/profile-photo.png';
 
-function Main({ onEditUserPhoto, onEditUserProfile, onAddCard, onCardClick, onPopupClose }) {
+function Main({ onEditUserPhoto, onEditUserProfile, onAddCard, onCardClick }) {
   // Переменные состояния
-  const [userName, setUserName] = React.useState('Имя пользователя не задано');
-  const [userDescription, setUserDescription] = React.useState('Описание пользователя не задано');
-  const [userAvatar, setUserAvatar] = React.useState('Ссылка на аватар не задана');
+  const [userName, setUserName] = React.useState('Жак Ив Кусто');
+  const [userDescription, setUserDescription] = React.useState('Исследователь океана');
+  const [userAvatar, setUserAvatar] = React.useState(defaultProfilePhoto);
   const [cards, setCards] = React.useState([]);
-
-  // Вспомогательные переменные
-  let userInfo;
 
   // Хук, срабатывающий при загрузке компонента
   React.useEffect(() => {
@@ -25,21 +21,6 @@ function Main({ onEditUserPhoto, onEditUserProfile, onAddCard, onCardClick, onPo
       setUserName(userData.name);
       setUserDescription(userData.about);
       setUserAvatar(userData.avatar);
-
-      userInfo = new UserInfo(
-        userData,
-        {
-          userNameSelector: applicationConfig.userNameSelector,
-          userDescriptionSelector: applicationConfig.userDescriptionSelector,
-          userProfilePhotoSelector: applicationConfig.userProfilePhotoSelector
-        },
-        {
-          handleUserInfo: api.setUserInfo.bind(api),
-          handleUserPhoto: api.updateUserPhoto.bind(api)
-        }
-      );
-
-      userInfo.setUserInfo(userData);
 
       // Создание промиса для получения карточек
       const getCardsPromise = api.getCards();
@@ -55,16 +36,16 @@ function Main({ onEditUserPhoto, onEditUserProfile, onAddCard, onCardClick, onPo
       <section className="profile">
         <div className="profile__details">
           <div className="profile__photo-container">
-            <img className="profile__photo" src={defaultProfilePhoto} alt="Фото профиля" title="Фото профиля" />
-            <button className="profile__photo-button" type="button"></button>
+            <img className="profile__photo" src={userAvatar} alt="Фото профиля" title="Фото профиля" />
+            <button className="profile__photo-button" type="button" onClick={onEditUserPhoto}></button>
           </div>
           <div className="profile__info">
-            <h1 className="profile__name">Жак-Ив Кусто</h1>
-            <button className="profile__edit-button" type="button"></button>
-            <p className="profile__description">Исследователь океана</p>
+            <h1 className="profile__name">{userName}</h1>
+            <button className="profile__edit-button" type="button" onClick={onEditUserProfile}></button>
+            <p className="profile__description">{userDescription}</p>
           </div>
         </div>
-        <button className="profile__add-button" type="button"></button>
+        <button className="profile__add-button" type="button" onClick={onAddCard}></button>
       </section>
       {/* Секция с элементами галереи красивых мест - Places */}
       <section className="places" aria-label="Галерея красивых мест">

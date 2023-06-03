@@ -47,36 +47,6 @@ function App() {
     setSelectedCard(null);
   }
 
-  // Хук окрытия попапа редактирования аватара
-  React.useEffect(() => {
-    const editUserPhotoButtonElement = document.querySelector('.profile__photo-button');
-    editUserPhotoButtonElement.addEventListener('click', handleEditUserPhotoClick);
-
-    return () => {
-      editUserPhotoButtonElement.removeEventListener('click', handleEditUserPhotoClick);
-    };
-  });
-
-  // Хук окрытия попапа редактирования профиля
-  React.useEffect(() => {
-    const editUserButtonElement = document.querySelector('.profile__edit-button');
-    editUserButtonElement.addEventListener('click', handleEditUserProfileClick);
-
-    return () => {
-      editUserButtonElement.removeEventListener('click', handleEditUserProfileClick);
-    };
-  });
-
-  // Хук окрытия попапа добавления нового места
-  React.useEffect(() => {
-    const addCardButtonElement = document.querySelector('.profile__add-button');
-    addCardButtonElement.addEventListener('click', handleAddCardClick);
-
-    return () => {
-      addCardButtonElement.removeEventListener('click', handleAddCardClick);
-    };
-  });
-
   return (
     <>
       {/* Главная обёртка - Page */}

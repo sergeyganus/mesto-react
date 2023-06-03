@@ -48,30 +48,3 @@ export const apiSettings = {
     'Content-Type': 'application/json'
   }
 };
-
-// // Получение информации о профиле
-// const userElement = document.querySelector(applicationConfig.userElementSelector);
-// export const editUserButtonElement = userElement.querySelector(applicationConfig.editUserButtonSelector);
-// export const editUserPhotoElement = userElement.querySelector(applicationConfig.editUserPhotoSelector);
-// export const editUserPhotoButtonElement = userElement.querySelector(applicationConfig.editUserPhotoButtonSelector)
-// export const addCardButtonElement = userElement.querySelector(applicationConfig.addCardButtonSelector);
-
-// // Получение модального окна редактирования профиля и его элементов
-// const editUserPopupElement = document.querySelector(applicationConfig.editUserPopupSelector);
-// export const editUserFormElement = editUserPopupElement.querySelector(applicationConfig.formSelector);
-// export const formUserNameElement = editUserFormElement.querySelector(applicationConfig.formUserNameSelector);
-// export const formUserDescriptionElement = editUserFormElement.querySelector(applicationConfig.formUserDescriptionSelector);
-// export const saveUserButtonElement = editUserFormElement.querySelector(applicationConfig.saveUserButtonSelector);
-
-// // Получение модального окна редактирования фотографии профиля и его элементов
-// const editUserPhotoPopupElement = document.querySelector(applicationConfig.editUserPhotoPopupSelector);
-// export const editUserPhotoFormElement = editUserPhotoPopupElement.querySelector(applicationConfig.formSelector);
-// export const formUserPhotoElement = editUserPhotoFormElement.querySelector(applicationConfig.formUserPhotoSelector);
-// export const saveUserPhotoButtonElement = editUserPhotoFormElement.querySelector(applicationConfig.saveUserPhotoButtonSelector);
-
-// // Получение модального окна добавления новой карточи и его элементов
-// const addCardPopupElement = document.querySelector(applicationConfig.addCardPopupSelector);
-// export const addCardFormElement = addCardPopupElement.querySelector(applicationConfig.formSelector);
-// export const formCardNameElement = addCardFormElement.querySelector(applicationConfig.formCardNameSelector);
-// export const formCardLinkElement = addCardFormElement.querySelector(applicationConfig.formCardLinkSelector);
-// export const addFormCardButtonElement = addCardFormElement.querySelector(applicationConfig.addFormCardButtonSelector);
