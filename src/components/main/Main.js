@@ -12,22 +12,35 @@ function Main({ onEditUserPhoto, onEditUserProfile, onAddCard, onCardClick }) {
   const [userAvatar, setUserAvatar] = React.useState(defaultProfilePhoto);
   const [cards, setCards] = React.useState([]);
 
+  // Впомогательная функция фиксации ошибок
+  function printError(err) {
+    console.log(err);
+  }
+
   // Хук, срабатывающий при загрузке компонента
   React.useEffect(() => {
     // Создание промиса для получения данных о пользователе
     const getUserInfoPromise = api.getUserInfo();
-    getUserInfoPromise.then(userData => {
-      // Актуализация переменных состояния
-      setUserName(userData.name);
-      setUserDescription(userData.about);
-      setUserAvatar(userData.avatar);
+    getUserInfoPromise
+      .then(userData => {
+        // Актуализация переменных состояния
+        setUserName(userData.name);
+        setUserDescription(userData.about);
+        setUserAvatar(userData.avatar);
 
-      // Создание промиса для получения карточек
-      const getCardsPromise = api.getCards();
-      getCardsPromise.then(currentCards => {
-        setCards([...currentCards]);
+        // Создание промиса для получения карточек
+        const getCardsPromise = api.getCards();
+        getCardsPromise
+          .then(currentCards => {
+            setCards([...currentCards]);
+          })
+          .catch(err => {
+            printError(err);
+          });
+      })
+      .catch(err => {
+        printError(err);
       });
-    });
   }, []);
 
   return (
